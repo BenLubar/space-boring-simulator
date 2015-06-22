@@ -1,13 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Press+Start+2P&subset=latin,greek,latin-ext,cyrillic);
 
-#templates {
-	display: none;
-}
-
 html {
 	background-color: #000;
 	color: #fff;
-	font-family: 'Press Start 2P', monospace;
+	font: 1.5vw 'Press Start 2P', monospace;
 }
 
 html, body {
@@ -44,12 +40,14 @@ option:checked {
 	font-size: 20vh;
 	text-align: center;
 	transform: scale(1, 1.2) perspective(0.5em) rotateY(-7deg) rotateZ(-7deg) translateX(100%) translateZ(-0.4em);
-	transition: transform 2.5s;
+	opacity: 0;
+	transition: transform 2.5s, opacity 10s;
 	position: absolute;
 }
 
 #title.active {
 	transform: scale(1, 1.2) perspective(0.5em) rotateY(-7deg) rotateZ(-7deg) translateX(-25%) translateZ(-0.4em);
+	opacity: 1;
 	transition: transform 10s;
 	position: static;
 }
@@ -69,12 +67,24 @@ option:checked {
 	text-shadow: 0 0 25px #fff;
 }
 
-#loading-status div, #attract-screen, #main-menu, #save-dialog {
+#loading-status div, #attract-screen, #main-menu {
 	display: none;
 }
 
-#loading-status .active, #attract-screen.active, #main-menu.active, #save-dialog.active {
+#loading-status .active, #attract-screen.active, #main-menu.active {
 	display: block;
+}
+
+.dialog, .intro-text {
+	position: absolute;
+	z-index: 1;
+	left: -150%;
+	top: 50%;
+	transition: left 0.5s;
+}
+
+.dialog.active, .intro-text.active {
+	left: 50%;
 }
 
 #attract-screen.error {
@@ -93,12 +103,12 @@ option:checked {
 
 .left {
 	transform: perspective(5em) translateZ(-1em) rotateY(5deg);
-	display: inline-block;
+	float: left;
 }
 
 .right {
 	transform: perspective(5em) translateZ(-1em) rotateY(-5deg);
-	display: inline-block;
+	float: right;
 }
 
 .name-tag span {
@@ -106,6 +116,11 @@ option:checked {
 	background-color: #fff;
 	color: #000;
 	padding: 0.2em;
+	display: inline-block;
+}
+
+.name-tag span.protagonist-name {
+	text-transform: uppercase;
 }
 
 #menu-bar {
@@ -128,8 +143,12 @@ option:checked {
 	cursor: pointer;
 	transition: text-shadow 0.1s;
 	display: inline-block;
-	margin: -0.5em 1em 0;
-	padding: 0.5em;
+	margin-left: 1em;
+	display: none;
+}
+
+#menu-bar .active {
+	display: inline-block;
 }
 
 #menu-bar.active span:hover {
@@ -141,27 +160,76 @@ option:checked {
 	padding: 1em;
 	color: #fff;
 	background: #444;
-	left: 50%;
-	position: absolute;
-	z-index: 1;
 	margin-left: -20em;
-	top: 50%;
 	margin-top: -2.5em;
 	line-height: 1;
 	height: 3em;
 	text-align: right;
 }
 
-#save-dialog-name {
-	color: #fff;
+input {
+	color: inherit;
+	background: transparent;
 	font: inherit;
 	width: 39.5em;
 	border: 0;
 	padding: 0.25em;
-	background: #000;
 	margin-bottom: 0.5em;
+}
+
+#save-dialog-name {
+	color: #fff;
+	background: #000;
 }
 
 #save-dialog-button {
 	cursor: pointer;
+}
+
+#space-credit-card-dialog {
+	margin-left: -25.5em;
+	margin-top: -4.5em;
+	width: 50em;
+	height: 8em;
+	padding: 0.5em;
+	background-color: #222;
+	color: #777;
+}
+
+#space-credit-card-dialog .space-credits {
+	color: #fff;
+}
+
+#space-credit-card-dialog .space-credit-card-number {
+	font-size: 2em;
+	color: #fff;
+}
+
+.intro-text {
+	top: 3em;
+	margin-left: -30em;
+	width: 60em;
+}
+
+#intro-text-0000 img {
+	width: 20em;
+	height: auto;
+}
+
+#intro-text-0000 .name-tag {
+	font-size: 1em;
+}
+
+.dialog-button, .activate-ui-element-button {
+	cursor: pointer;
+	text-shadow: 0 0 0em #77f;
+	transition: text-shadow 0.5s;
+}
+
+.dialog-button:hover, .activate-ui-element-button:hover {
+	text-shadow: 0 0 0.5em #77f;
+}
+
+.space-credits:before {
+	content: '§';
 }
