@@ -77,8 +77,12 @@ option:checked {
 	display: block;
 }
 
+#attract-screen.error {
+	text-shadow: 0 0 25px #f00;
+}
+
 .name-tag {
-	font-size: 10px;
+	font-size: 0.5em;
 	display: inline-block;
 	padding: 0.25em;
 	text-align: center;
@@ -87,12 +91,14 @@ option:checked {
 	background-color: #c00;
 }
 
-.left .name-tag {
+.left {
 	transform: perspective(5em) translateZ(-1em) rotateY(5deg);
+	display: inline-block;
 }
 
-.right .name-tag {
+.right {
 	transform: perspective(5em) translateZ(-1em) rotateY(-5deg);
+	display: inline-block;
 }
 
 .name-tag span {

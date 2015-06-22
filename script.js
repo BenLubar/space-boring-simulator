@@ -95,6 +95,11 @@
 		resetLoadingStatus();
 		initializeAttractScreen();
 	}, false);
+	applicationCache.addEventListener('error', function() {
+		resetLoadingStatus();
+		initializeAttractScreen();
+		document.getElementById('attract-screen').classList.add('error');
+	}, false);
 	applicationCache.addEventListener('progress', function(e) {
 		resetLoadingStatus();
 		document.getElementById('loading-status-progress').classList.add(ACTIVE_CLASS);
