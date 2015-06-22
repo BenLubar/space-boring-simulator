@@ -1,3 +1,11 @@
 CACHE MANIFEST
+# 2015-06-22 v000
 
+CACHE:
 music.mp3
+style.css
+https://fonts.googleapis.com/css?family=Press+Start+2P&subset=latin,greek,latin-ext,cyrillic
+script.js
+
+NETWORK:
+*

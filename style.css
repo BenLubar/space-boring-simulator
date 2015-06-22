@@ -1,0 +1,155 @@
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P&subset=latin,greek,latin-ext,cyrillic);
+
+#templates {
+	display: none;
+}
+
+html {
+	background-color: #000;
+	color: #fff;
+	overflow: hidden;
+	font-family: 'Press Start 2P', monospace;
+}
+
+select, select:focus {
+	background-color: #000;
+	color: #fff;
+	width: 50vw;
+	border: 0;
+	font: inherit;
+}
+
+option {
+	padding-top: 0.4em;
+}
+
+option:checked {
+	background-color: #fff;
+	color: #000;
+}
+
+#title {
+	display: inline-block;
+	animation: title;
+	animation-duration: 1s;
+	animation-direction: alternate;
+	animation-iteration-count: 100000000;
+	margin: 0;
+	font-size: 20vh;
+	text-align: center;
+	transform: scale(1, 1.2) perspective(0.5em) rotateY(-7deg) rotateZ(-7deg) translateX(100%) translateZ(-0.4em);
+	transition: transform 2.5s;
+	position: absolute;
+}
+
+#title.active {
+	transform: scale(1, 1.2) perspective(0.5em) rotateY(-7deg) rotateZ(-7deg) translateX(-25%) translateZ(-0.4em);
+	transition: transform 10s;
+	position: static;
+}
+
+#title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+@keyframes title {
+	from { text-shadow: 0 0 0.25em #fff; }
+	to { text-shadow: 0 0 0.5em #fff; }
+}
+
+#loading-status, #attract-screen, #main-menu {
+	text-align: center;
+	text-shadow: 0 0 25px #fff;
+}
+
+#loading-status div, #attract-screen, #main-menu, #save-dialog {
+	display: none;
+}
+
+#loading-status .active, #attract-screen.active, #main-menu.active, #save-dialog.active {
+	display: block;
+}
+
+.name-tag {
+	font-size: 10px;
+	display: inline-block;
+	padding: 0.25em;
+	text-align: center;
+	line-height: 1.5;
+	color: #fff;
+	background-color: #c00;
+}
+
+.left .name-tag {
+	transform: perspective(5em) translateZ(-1em) rotateY(5deg);
+}
+
+.right .name-tag {
+	transform: perspective(5em) translateZ(-1em) rotateY(-5deg);
+}
+
+.name-tag span {
+	font-size: 3em;
+	background-color: #fff;
+	color: #000;
+	padding: 0.2em;
+}
+
+#menu-bar {
+	position: absolute;
+	top: -2em;
+	left: 0;
+	width: 100%;
+	height: 1em;
+	padding: 0.5em 0;
+	background-color: #444;
+	text-shadow: 0 0 0.25em #666;
+	transition: top 0.5s;
+}
+
+#menu-bar.active {
+	top: 0em;
+}
+
+#menu-bar span {
+	cursor: pointer;
+	transition: text-shadow 0.1s;
+	display: inline-block;
+	margin: -0.5em 1em 0;
+	padding: 0.5em;
+}
+
+#menu-bar.active span:hover {
+	text-shadow: 0 0 0.25em #fff;
+}
+
+#save-dialog {
+	width: 40em;
+	padding: 1em;
+	color: #fff;
+	background: #444;
+	left: 50%;
+	position: absolute;
+	z-index: 1;
+	margin-left: -20em;
+	top: 50%;
+	margin-top: -2.5em;
+	line-height: 1;
+	height: 3em;
+	text-align: right;
+}
+
+#save-dialog-name {
+	color: #fff;
+	font: inherit;
+	width: 39.5em;
+	border: 0;
+	padding: 0.25em;
+	background: #000;
+	margin-bottom: 0.5em;
+}
+
+#save-dialog-button {
+	cursor: pointer;
+}
