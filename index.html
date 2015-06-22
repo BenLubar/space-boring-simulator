@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html manifest="index.manifest">
+<head>
+<meta charset="utf-8">
+<title>SPACE BORING SIMULATOR starring DENNIS "SCRABBLE" RAVENTHICKET</title>
+<style>
+body {
+	background: #000;
+	color: #fff;
+}
+
+#title {
+	transform: scale(1, 1.2) perspective(0.5em) rotateY(-7deg) rotateZ(-7deg) translateX(6%) translateZ(-0.4em);
+	display: inline-block;
+	animation: title;
+	animation-duration: 1s;
+	animation-direction: alternate;
+	animation-iteration-count: 100000000;
+	margin: 0;
+	font: 20vh 'Comic Sans MS';
+	text-align: center;
+}
+
+#title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+@keyframes title {
+	from { text-shadow: 0 0 0.25em #fff; }
+	to { text-shadow: 0 0 0.5em #fff; }
+}
+</style>
+</head>
+<body>
+<h1 id="title">SPACE<br><a href="https://en.wikipedia.org/wiki/Boring_(earth)">BORING</a><br>SIMULATOR</h1>
+<audio id="music" src="music.mp3" loop preload></audio>
+<script>
+setTimeout(function() {
+	var music = document.getElementById('music');
+	music.play();
+	music.controls = true;
+	music.style.display = 'inline-block';
+}, 20000);
+</script>
+</body>
+</html>
